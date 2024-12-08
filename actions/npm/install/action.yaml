@@ -1,0 +1,25 @@
+# https://docs.github.com/en/actions/creating-actions/creating-a-composite-action
+# https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#inputs
+# https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#runs-for-composite-run-steps-actions
+# https://docs.npmjs.com/cli/v9/commands/npm-install
+# https://docs.npmjs.com/cli/v9/commands/npm-ci
+
+name: "Install dependencies with npm"
+
+description: "Installs dependencies with npm"
+
+inputs:
+    working-directory:
+        default: "."
+        description: "Which directory to use as working directory"
+        required: true
+
+runs:
+    using: "composite"
+
+    steps:
+        - name: "Install ${{ inputs.dependencies }} dependencies with npm"
+          env:
+              NPM_INSTALL_WORKING_DIRECTORY: "${{ inputs.working-directory }}"
+          run: "${{ github.action_path }}/run.sh"
+          shell: "bash"
