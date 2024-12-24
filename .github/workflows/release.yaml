@@ -17,6 +17,6 @@ jobs:
 
         steps:
             - name: "Create release"
-              uses: "basecodeoy/.github/actions/github/release/create@1.0.1"
+              uses: "basecodeoy/.github/actions/github/release/create@1.0.2"
               with:
                   github-token: "${{ secrets.PAT }}"
