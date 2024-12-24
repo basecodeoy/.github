@@ -14,7 +14,7 @@ inputs:
         description: "GitHub token of a user with permission to merge a pull request"
         required: true
     merge-method:
-        default: "merge"
+        default: "squash"
         description: "Which merge method to use, one \"merge\", \"rebase\", \"squash\""
         required: true
 
